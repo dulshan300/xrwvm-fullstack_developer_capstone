@@ -1,19 +1,32 @@
-# Uncomment the following imports before adding the Model code
 
 from django.db import models
-from django.utils.timezone import now
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class CarMake(models.Model):
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
+    """
+
     name = models.CharField(max_length=100)
     description = models.TextField()
 
-    def __str__(self):
-        return self.name
+    def __str__(self) -> str:
+        return str(self.name)
 
 
 class CarModel(models.Model):
+    """_summary_
+
+    Returns:
+        _type_: _description_
+    """
+
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
 
@@ -37,4 +50,4 @@ class CarModel(models.Model):
     )
 
     def __str__(self):
-        return self.name
+        return str(self.name)
