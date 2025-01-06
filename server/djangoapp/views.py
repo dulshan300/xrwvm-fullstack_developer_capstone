@@ -96,7 +96,7 @@ def get_cars(request):
     cars = []
     for car_model in car_models:
         cars.append({"CarModel": car_model.name,
-        "CarMake": car_model.car_make.name})
+                     "CarMake": car_model.car_make.name})
     return JsonResponse({"CarModels": cars})
 
 
@@ -128,7 +128,6 @@ def get_dealer_details(request, dealer_id):
         endpoint = "/fetchDealer/" + str(dealer_id)
         dealership = get_request(endpoint)
         return JsonResponse({"status": 200, "dealer": dealership})
-    
     return JsonResponse({"status": 400, "message": "Bad Request"})
 
 
@@ -139,5 +138,5 @@ def add_review(request):
             return JsonResponse({"status": 200})
         except Exception as e:
             return JsonResponse({"status": 401, "message": f"Error in {e}"})
-    else:
-        return JsonResponse({"status": 403, "message": "Unauthorized"})
+    
+    return JsonResponse({"status": 403, "message": "Unauthorized"})
