@@ -3,14 +3,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class CarMake(models.Model):
-    """_summary_
-
-    Args:
-        models (_type_): _description_
-
-    Returns:
-        _type_: _description_
-    """
 
     name = models.CharField(max_length=100)
     description = models.TextField()
@@ -20,11 +12,6 @@ class CarMake(models.Model):
 
 
 class CarModel(models.Model):
-    """_summary_
-
-    Returns:
-        _type_: _description_
-    """
 
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
